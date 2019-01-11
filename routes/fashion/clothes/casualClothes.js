@@ -1,10 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const router = express.Router()
+const Cloth = require('../../../models/fashion/clothes/cloth')
 
+router.get('/', async function(req, res){
+    const cloth = await Cloth.find({'ocasion':'Casual'})
+    res.send(cloth)
+})
 
-router.get('/', function(req, res){
-    res.send('casual clothes')
+router.get('/:id', async function(req, res){
+    const cloth = await Cloth.findById(req.params.id)
+    res.send(cloth)
 })
 
 
