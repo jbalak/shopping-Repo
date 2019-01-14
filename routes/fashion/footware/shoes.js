@@ -4,7 +4,7 @@ const router = express.Router()
 const Shoes = require('../../../models/fashion/shoes/shoe')
 
 router.get('/', async function(req, res){
-    const shoes = await Shoes.find({'ocasion':'Casual'})
+    const shoes = await Shoes.find()
     
     if(! shoes) return res.status(404).send('Given product is not available..')
     

@@ -1,20 +1,30 @@
 const mongoose = require('mongoose')
 const mobileSchema = new mongoose.Schema({
+
+  title:{
+      type:String,
+      required:true
+  },
+    
   brand: {
-      type: String
+      type: String,
+      required:true
   },
   model:{
-      type: String
+      type: String,
+      required:true
   },
   price: {
-      type: Number
+      type: Number,
+      required:true
   },
-  color:{
-      type: String
-  },
-  available:
+  color:[{
+      type: String,
+      required:true
+  }],
+  stock:
   {
-      type: Boolean
+      type: Number
   }
 })
 

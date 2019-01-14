@@ -2,30 +2,32 @@ const brandSchema = require('../brand')
 const mongoose = require('mongoose')
 const headphoneSchema = new mongoose.Schema({
   title:{
-      type : String
+      type : String,
+      required :true
   },
     
   brand: {
-      type:String
+      type:String,
+      required:true
     //   type: mongoose.Schema.Types.ObjectId,
     //   ref:'Brand'
   },
   
-  model:{
-      type: String
-  },
-  
   price: {
-      type: Number
+      type: Number,
+      required:true
   },
   
-  color:{
-      type: String
-  },
+  color: [
+    { 
+        type: String 
+    }
+  ],
   
-  available:
+  stock:
   {
-      type: Boolean
+      type: Number,
+      required:true
   }
 })
 

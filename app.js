@@ -3,12 +3,10 @@ const app = express()
 const mongoose = require('mongoose')
 const headphones = require('./routes/electronics/headphones')
 const mobiles = require('./routes/electronics/mobiles')
-const casualClothes = require('./routes/fashion/clothes/casualClothes')
-const partyClothes = require('./routes/fashion/clothes/partyClothes')
-const casualShoes = require('./routes/fashion/shoes/casualShoes')
-const partyShoes = require('./routes/fashion/shoes/partyShoes')
+const clothes = require('./routes/fashion/clothes/clothes')
+const shoes = require('./routes/fashion/footware/shoes')
 const home = require('./routes/home')
-const add = require('./routes/home')
+const add = require('./routes/Add Products/addProducts')
 
 
 //connect to db
@@ -26,13 +24,9 @@ app.use(express.json())
 app.use('/', home)
 app.use('/electronics/headphones', headphones)
 app.use('/electronics/mobiles',mobiles)
-app.use('/fashion/clothes/casual', casualClothes)
-app.use('/fashion/clothes/party', partyClothes)
-app.use('/fashion/shoes/casual', casualShoes)
-app.use('/fashion/shoes/party', partyShoes)
+app.use('/fashion/clothes/clothes', clothes)
+app.use('/fashion/footware/shoes', shoes)
 app.use('/add',add)
-
-
 
 
 //listen to servet

@@ -1,26 +1,37 @@
 const mongoose = require('mongoose')
 const clothSchema = new mongoose.Schema({
-    brand: {
-        type: String
+    title:{
+        type: String,
+        required:true
     },
+    
+    brand: {
+        type: String,
+        required:true
+    },
+    
     price: {
-        type: Number
+        type: Number,
+        required:true
     },
     color:{
         type: String
     },
     size:
-    {
-        type: String
-    },
+    [{
+        type: String,
+        required:true
+    }],
     ocasion:{
-        type: String
+        type: String,
+        required:true
     },
     ratings:{
         type:Number
     },
     stock:{
-        type:Number
+        type:Number,
+        required:true
     }
   
 })
