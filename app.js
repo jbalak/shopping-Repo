@@ -9,6 +9,8 @@ const shoes = require('./routes/fashion/footware/shoes')
 const home = require('./routes/home')
 const add = require('./routes/AddProducts/addProducts')
 const signup = require('./routes/users/signup')
+const login = require('./routes/users/login')
+
 const passport = require('passport')
 
 //connect to db
@@ -33,6 +35,7 @@ app.use('/fashion/clothes/clothes', clothes)
 app.use('/fashion/footware/shoes', shoes)
 app.use('/add', add)
 app.use('/user/signup', signup)
+app.use('/user/login', login)
 
 const port = process.env.PORT
 //listen to servet
