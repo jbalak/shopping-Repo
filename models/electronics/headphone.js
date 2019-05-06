@@ -31,6 +31,4 @@ const headphoneSchema = new mongoose.Schema({
   }
 })
 
-const Headphone = mongoose.model('headphone', headphoneSchema)
-
-module.exports = Headphone
+module.exports = mongoose.model('headphone', headphoneSchema)

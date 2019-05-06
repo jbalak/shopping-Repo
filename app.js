@@ -19,12 +19,13 @@ mongoose.connect('mongodb://localhost/Heady', { useNewUrlParser: true })
     .catch(function (err) {
         console.error('Not connected to db')
     })
-mongoose.connection.collection('user').insertOne({ email: "abc@gmail.com" }, () => { })
 
 
 app.set('view engine', 'ejs')
 app.use(passport.initialize())
 app.use(express.json())
+app.use(passport.initialize())
+app.use(passport.session())
 app.use('/', home)
 app.use('/electronics/headphones', headphones)
 app.use('/electronics/mobiles', mobiles)
