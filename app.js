@@ -1,3 +1,5 @@
+require('dotenv').config()
+const passport = require('passport')
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -8,28 +10,30 @@ const shoes = require('./routes/fashion/footware/shoes')
 const home = require('./routes/home')
 const add = require('./routes/Add Products/addProducts')
 
-
 //connect to db
-mongoose.connect('mongodb://localhost/Heady', { useNewUrlParser: true })
-.then(function(){
+mongoose
+  .connect('mongodb://localhost/Heady', { useNewUrlParser: true })
+  .then(function () {
     console.log('Connected to db')
-})
-.catch(function(err){
+  })
+  .catch(function (err) {
     console.error('Not connected to db')
-})
+  })
 
 app.set('view engine', 'ejs')
 
 app.use(express.json())
+app.use(passport.initialize())
+app.use(passport.session())
 app.use('/', home)
-app.use('/electronics/headphones', headphones)
-app.use('/electronics/mobiles',mobiles)
-app.use('/fashion/clothes/clothes', clothes)
-app.use('/fashion/footware/shoes', shoes)
-app.use('/add',add)
-
+app.use('/api/electronics/headphones', headphones)
+app.use('/api/electronics/mobiles', mobiles)
+app.use('/api/fashion/clothes/clothes', clothes)
+app.use('/api/fashion/footware/shoes', shoes)
+app.use('/api/add', add)
 
 //listen to servet
-app.listen(process.env.PORT || 9000, function(){
-    console.log(`Listening...`)
+const port = process.env.PORT || 9000
+app.listen(port, function () {
+  console.log(`Listening at ${port}`)
 })
